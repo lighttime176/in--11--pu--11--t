@@ -11,7 +11,7 @@ on:
       name:
         description: 'Name'
         required: true
-        default: '12345678900'
+        default: '请输入手机号'
 permissions:
   contents: write
   pull-requests: write
@@ -38,7 +38,7 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: 运行 Python 代码
-      run: python input.py
+      run: python input.py "${{ github.event.inputs.name }}"
       env:
         GIST_TOKEN : ${{ secrets.GIST_TOKEN }}
 
