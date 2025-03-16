@@ -12,7 +12,8 @@ from datetime import datetime
 # Gist 原始文件 URL
 # 全局变量
 #修改手机号
-phonenum = '13329989933'
+phonenum = sys.argv[1] if len(sys.argv) > 1 else "默认值"
+#phonenum = '13329989933'
 LOCAL_LOG_FILE = f"{phonenum[-4:]}.log"
 GIST_FILENAME = LOCAL_LOG_FILE
 LOCAL_LOG_FILE = LOCAL_LOG_FILE
