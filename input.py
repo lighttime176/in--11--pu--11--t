@@ -5989,9 +5989,9 @@ def d16(tab, browser):
     try:
         res = tab.listen.wait(timeout=10).response
         res = res.body
-        print(f'----{name}{masked_phone}----：{res}')
+        logger.info(f'----{name}{masked_phone}----：{res}')
     except:
-        print(f'{name}注册失败')
+        logger.info(f'{name}注册失败')
         res = {"statusCode": -1}
 
     browser.quit()  # 关闭浏览器
@@ -6269,7 +6269,7 @@ def create_gist():
         }
     }
     response = requests.post("https://api.github.com/gists", headers=HEADERS, json=data)
-    print(response.status_code, response.json())  # 调试信息
+    #logger.info(response.status_code, response.json())  # 调试信息
     if response.status_code == 201:
         return response.json()['id']
     raise Exception("Failed to create Gist")
